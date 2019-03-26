@@ -1,0 +1,19 @@
+@import "_colors.scss";
+
+.gameboard {
+  display: table;
+  border: 2px solid $black;
+
+  .grid {
+    position: relative;
+  }
+  .row {
+    display: table-row;
+  }
+  .tile {
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    border: 1px solid $black;
+  }
+}

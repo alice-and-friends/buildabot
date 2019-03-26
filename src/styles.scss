@@ -1,11 +1,15 @@
 @import "_colors.scss";
 
 body {
-  background: $black;
+  background: $blackish;
   color: $white;
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
   font-family: 'Share Tech Mono', monospace;
   font-weight: normal;
+}
+
+div {
+  box-sizing: border-box;
 }
