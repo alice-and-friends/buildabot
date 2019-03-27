@@ -5,6 +5,10 @@
   </h1>
 </div>
 
-<app-gameboard></app-gameboard>
+<app-gameboard [@gameboard]="gameboard"></app-gameboard>
+
+<app-program-editor [@program]="program"></app-program-editor>
+
+<button (click)="runProgram()">Run program</button>
 
 <router-outlet></router-outlet>

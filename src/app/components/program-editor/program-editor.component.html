@@ -1,0 +1,14 @@
+<div class="parent">
+  <div class="instruction-list-wrap">
+    <div>My program</div>
+    <div class="instruction-list my-program" dragula="COPYABLE" [(dragulaModel)]="program.commands" id="right">
+      <app-instruction *ngFor="let c of program.commands" [@instruction]="c" class="instruction-block">{{ c.name }}</app-instruction>
+    </div>
+  </div>
+  <div class="instruction-list-wrap">
+    <div>Instruction set</div>
+    <div class="instruction-list" dragula="COPYABLE" [(dragulaModel)]="commands" id="left">
+      <app-instruction *ngFor="let c of commands" [@instruction]="c" class="instruction-block">{{ c.name }}></app-instruction>
+    </div>
+  </div>
+</div>
