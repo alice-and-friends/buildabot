@@ -1,29 +1,29 @@
 export class Player {
   posX: number;
   posY: number;
-  orientation: string;
+  rotation: number;
 
   constructor(opts) {
     this.posX = opts.posX;
     this.posY = opts.posY;
-    this.orientation = opts.orientation;
+    this.rotation = opts.rotation;
   }
 
   /*
    * Functions for moving the player token
    */
   move(distance) {
-    switch (this.orientation) {
-      case 'north':
+    switch (this.rotation % 360) {
+      case 0:
         this.posY -= distance;
         break;
-      case 'east':
+      case 90:
         this.posX += distance;
         break;
-      case 'south':
+      case 180:
         this.posY += distance;
         break;
-      case 'west':
+      case 270:
         this.posX -= distance;
         break;
     }
@@ -38,18 +38,10 @@ export class Player {
   /*
    * Functions for turning the player token
    */
-  turn(clockwise) {
-    const dirs = ['north', 'east', 'south', 'west'];
-    if (!clockwise) {
-      dirs.reverse();
-    }
-    const index = dirs.indexOf(this.orientation);
-    this.orientation = dirs[index + 1] || dirs[0];
-  }
   turnLeft() {
-    this.turn(false);
+    this.rotation -= 90;
   }
   turnRight() {
-    this.turn(true);
+    this.rotation += 90;
   }
 }

@@ -13,7 +13,7 @@ export class GameboardComponent {
   player = new Player({
     posX: 0,
     posY: 1,
-    orientation: 'north'
+    rotation: 0,
   });
 
   constructor() {
@@ -26,10 +26,32 @@ export class GameboardComponent {
       this.tiles.push(row);
     }
 
+    /*
     this.player.moveForward();
     setTimeout(() => {
       this.player.moveBackward();
     }, 3000);
+    */
+
+    const commands = [
+      'moveForward',
+      'turnRight',
+      'moveForward',
+      'turnRight',
+      'moveForward',
+      'turnRight',
+      'moveForward',
+      'turnRight'
+    ];
+    let myInterval = setInterval(() => {
+      if (commands.length) {
+        const c = commands.shift();
+        this.player[c]();
+      }
+      else {
+        clearInterval(myInterval);
+      }
+    }, 1000);
 
   }
 }

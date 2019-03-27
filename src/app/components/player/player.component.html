@@ -1,6 +1,9 @@
 <div
-  [ngStyle]="{'left.px': player.posX * 100, 'top.px': player.posY * 100}"
+  [ngStyle]="{
+    'left.px': player.posX * 100,
+    'top.px': player.posY * 100,
+    'transform': 'rotate('+player.rotation+'deg)'
+  }"
   class="player"
 >
-  {{ player.orientation }}
 </div>
