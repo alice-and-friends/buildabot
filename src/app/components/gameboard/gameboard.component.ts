@@ -10,19 +10,26 @@ export class GameboardComponent {
 
   boardSize = 2;
   tiles = [];
-  player: Player = {
-    id: 1,
-    name: 'Alice'
-  }
+  player = new Player({
+    posX: 0,
+    posY: 1,
+    orientation: 'north'
+  });
 
   constructor() {
-    var row;
-    for(var i = 0; i < this.boardSize; i++) {
-      row = []
-      for(var j = 0; j < this.boardSize; j++) {
+    let row;
+    for (let i = 0; i < this.boardSize; i++) {
+      row = [];
+      for (let j = 0; j < this.boardSize; j++) {
         row.push(1);
       }
       this.tiles.push(row);
     }
+
+    this.player.moveForward();
+    setTimeout(() => {
+      this.player.moveBackward();
+    }, 3000);
+
   }
 }

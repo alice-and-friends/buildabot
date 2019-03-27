@@ -9,13 +9,7 @@ import { Player } from 'app/models/player';
 export class PlayerComponent {
   @Input() player: Player;
 
-  constructor() { }
-
-  playerStyle = {'left.px': 0};
-
-  moveForward() {
-    console.log(1);
-    this.playerStyle['left.px'] += 100;
+  constructor() {
   }
 
 }

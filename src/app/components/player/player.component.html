@@ -1,4 +1,6 @@
-<div [ngStyle]="playerStyle" class="player">
-  {{ player.name }}
-  <button (click)="moveForward()"></button>
+<div
+  [ngStyle]="{'left.px': player.posX * 100, 'top.px': player.posY * 100}"
+  class="player"
+>
+  {{ player.orientation }}
 </div>
