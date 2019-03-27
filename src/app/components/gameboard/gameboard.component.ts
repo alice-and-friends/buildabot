@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Player } from 'app/models/player';
 
 @Component({
   selector: 'app-gameboard',
@@ -9,6 +10,10 @@ export class GameboardComponent {
 
   boardSize = 2;
   tiles = [];
+  player: Player = {
+    id: 1,
+    name: 'Alice'
+  }
 
   constructor() {
     var row;
