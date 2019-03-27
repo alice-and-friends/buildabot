@@ -1,4 +1,5 @@
 export class Command {
   id: number;
-  name: string
+  name: string;
+  f: string;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COMMANDS } from './constants/commands';
+import { Gameboard } from 'app/models/gameboard';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,15 @@ import { COMMANDS } from './constants/commands';
 })
 export class AppComponent {
   title = 'Buildabot';
-  commands = COMMANDS;
+  gameboard = new Gameboard({
+    boardSize: 2,
+  });
+  program = {
+    name: 'HelloWorld',
+    commands: [],
+  };
+
+  runProgram() {
+    this.gameboard.runProgram(this.program);
+  }
 }

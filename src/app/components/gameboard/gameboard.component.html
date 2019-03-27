@@ -1,7 +1,7 @@
 <div class="gameboard">
   <div class="grid">
-    <app-player [@player]="player"></app-player>
-    <div *ngFor="let row of tiles" class="row">
+    <app-player [@player]="gameboard.player"></app-player>
+    <div *ngFor="let row of gameboard.tiles" class="row">
       <div *ngFor="let tile of row" class="tile">TILE</div>
     </div>
   </div>
