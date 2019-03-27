@@ -6,7 +6,12 @@
   top: 0;
   width: 100px;
   height: 100px;
-  background: $green;
   border: 1px solid $black;
   transition: all 0.5s ease;
+  background: $green;
+  background-image: url('/assets/images/player-orientation.svg');
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  border-radius: 50%;
 }
