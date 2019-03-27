@@ -9,50 +9,47 @@ export class Player {
     this.orientation = opts.orientation;
   }
 
-  moveForward() {
-    console.log('Moving forward');
-    switch(this.orientation) {
+  /*
+   * Functions for moving the player token
+   */
+  move(distance) {
+    switch (this.orientation) {
       case 'north':
-        this.posY -= 1;
+        this.posY -= distance;
         break;
       case 'east':
-        this.posX += 1;
+        this.posX += distance;
         break;
       case 'south':
-        this.posY += 1;
+        this.posY += distance;
         break;
       case 'west':
-        this.posX -= 1;
+        this.posX -= distance;
         break;
     }
+  }
+  moveForward() {
+    this.move(1);
   }
   moveBackward() {
-    console.log('Moving backward');
-    switch(this.orientation) {
-      case 'north':
-        this.posY += 1;
-        break;
-      case 'east':
-        this.posX -= 1;
-        break;
-      case 'south':
-        this.posY -= 1;
-        break;
-      case 'west':
-        this.posX += 1;
-        break;
+    this.move(-1);
+  }
+
+  /*
+   * Functions for turning the player token
+   */
+  turn(clockwise) {
+    const dirs = ['north', 'east', 'south', 'west'];
+    if (!clockwise) {
+      dirs.reverse();
     }
-  }
-  turnLeft() {
-    console.log('Turning left');
-    const dirs = ['north', 'east', 'south', 'west'];
-    const index = dirs.indexOf(this.orientation);
-    this.orientation = dirs[index - 1] || dirs[dirs.length - 1];
-  }
-  turnRight() {
-    console.log('Turning right');
-    const dirs = ['north', 'east', 'south', 'west'];
     const index = dirs.indexOf(this.orientation);
     this.orientation = dirs[index + 1] || dirs[0];
+  }
+  turnLeft() {
+    this.turn(false);
+  }
+  turnRight() {
+    this.turn(true);
   }
 }
