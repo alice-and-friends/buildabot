@@ -13,7 +13,7 @@ export class AppComponent {
   });
   program = {
     name: 'HelloWorld',
-    commands: [],
+    instructions: [],
   };
 
   runProgram() {

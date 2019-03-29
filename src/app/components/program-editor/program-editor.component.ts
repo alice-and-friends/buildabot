@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { COMMANDS } from 'app/constants/commands';
-import { Command } from '../../models/command';
+import { INSTRUCTIONS } from 'app/constants/instructions';
+import { Instruction } from '../../models/instruction';
 import { DragulaService } from 'ng2-dragula';
 
 
@@ -9,17 +9,17 @@ import { DragulaService } from 'ng2-dragula';
   templateUrl: './program-editor.component.html',
 })
 export class ProgramEditorComponent {
-  @Input() program: Command[];
+  @Input() program: Instruction[];
 
-  commands = COMMANDS;
+  instructions = INSTRUCTIONS;
 
   constructor(private dragulaService: DragulaService) {
     dragulaService.createGroup('COPYABLE', {
       copy: (el, source) => {
         return source.id === 'left';
       },
-      copyItem: (command: Command) => {
-        return Object.assign({}, command);
+      copyItem: (instruction: Instruction) => {
+        return Object.assign({}, instruction);
       },
       accepts: (el, target, source, sibling) => {
         // To avoid dragging from right to left container

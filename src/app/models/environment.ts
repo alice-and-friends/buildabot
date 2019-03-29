@@ -26,11 +26,11 @@ export class Environment {
   }
 
   runProgram(program) {
-    const commands = JSON.parse(JSON.stringify(program.commands));
-    console.log('Executing command sequence:', commands);
+    const instructions = JSON.parse(JSON.stringify(program.instructions));
+    console.log('Executing instruction sequence:', instructions);
     const myInterval = setInterval(() => {
-      if (commands && commands.length) {
-        const c = commands.shift();
+      if (instructions && instructions.length) {
+        const c = instructions.shift();
         this.player[c.f]();
       }
       else {

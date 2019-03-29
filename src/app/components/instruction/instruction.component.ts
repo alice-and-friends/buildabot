@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { Command } from 'app/models/command';
+import { Instruction } from 'app/models/instruction';
 
 @Component({
   selector: 'app-instruction',
   templateUrl: './instruction.component.html',
 })
 export class InstructionComponent {
-  @Input() instruction: Command;
+  @Input() instruction: Instruction;
 
   constructor() { }
 

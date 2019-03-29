@@ -1,6 +1,6 @@
-import { Command } from 'app/models/command';
+import { Instruction } from 'app/models/instruction';
 
-export const COMMANDS: Command[] = [
+export const INSTRUCTIONS: Instruction[] = [
   {
     id: 11,
     name: 'Move forward',
