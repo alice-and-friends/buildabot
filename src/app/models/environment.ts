@@ -1,6 +1,6 @@
 import { Player } from 'app/models/player';
 
-export class Gameboard {
+export class Environment {
   boardSize: number;
   player: Player;
   tiles: [][];

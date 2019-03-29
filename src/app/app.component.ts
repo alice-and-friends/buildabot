@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Gameboard } from 'app/models/gameboard';
+import { Environment } from 'app/models/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { Gameboard } from 'app/models/gameboard';
 })
 export class AppComponent {
   title = 'Buildabot';
-  gameboard = new Gameboard({
+  environment = new Environment({
     boardSize: 2,
   });
   program = {
@@ -17,6 +17,6 @@ export class AppComponent {
   };
 
   runProgram() {
-    this.gameboard.runProgram(this.program);
+    this.environment.runProgram(this.program);
   }
 }

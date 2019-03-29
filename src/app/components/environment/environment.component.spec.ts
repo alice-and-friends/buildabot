@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GameboardComponent } from './gameboard.component';
+import { EnvironmentComponent } from './environment.component';
 
-describe('GameboardComponent', () => {
-  let component: GameboardComponent;
-  let fixture: ComponentFixture<GameboardComponent>;
+describe('EnvironmentComponent', () => {
+  let component: EnvironmentComponent;
+  let fixture: ComponentFixture<EnvironmentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameboardComponent ]
+      declarations: [ EnvironmentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GameboardComponent);
+    fixture = TestBed.createComponent(EnvironmentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

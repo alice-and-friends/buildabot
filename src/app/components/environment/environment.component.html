@@ -1,0 +1,8 @@
+<div class="environment">
+  <div class="grid">
+    <app-player [@player]="environment.player"></app-player>
+    <div *ngFor="let row of environment.tiles" class="row">
+      <div *ngFor="let tile of row" class="tile">TILE</div>
+    </div>
+  </div>
+</div>
