@@ -21,4 +21,9 @@ export const INSTRUCTIONS: Instruction[] = [
     name: 'Turn right',
     f: 'turnRight',
   },
+  {
+    id: 15,
+    name: 'Turn around',
+    f: 'turnAround',
+  },
 ];
