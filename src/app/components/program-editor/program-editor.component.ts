@@ -7,7 +7,6 @@ import { DragulaService } from 'ng2-dragula';
 @Component({
   selector: 'app-program-editor',
   templateUrl: './program-editor.component.html',
-  styleUrls: ['./program-editor.component.scss']
 })
 export class ProgramEditorComponent {
   @Input() program: Command[];
