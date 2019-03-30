@@ -11,7 +11,7 @@ export class Environment {
 
     this.player = new Player({
       posX: 0,
-      posY: 1,
+      posY: this.boardSize - 1,
       rotation: 0,
     });
 

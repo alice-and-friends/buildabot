@@ -9,7 +9,7 @@ import { Environment } from 'app/models/environment';
 export class AppComponent {
   title = 'Buildabot';
   environment = new Environment({
-    boardSize: 2,
+    boardSize: 6,
   });
   program = {
     name: 'HelloWorld',

@@ -1,14 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="wrapper">
+
+  <div class="f-left w-1-2">
+    <app-environment [@environment]="environment"></app-environment>
+  </div>
+
+  <div class="f-right w-1-2">
+    <app-program-editor [@program]="program"></app-program-editor>
+    <button (click)="runProgram()">Run program</button>
+  </div>
+
 </div>
 
-<app-environment [@environment]="environment"></app-environment>
-
-<app-program-editor [@program]="program"></app-program-editor>
-
-<button (click)="runProgram()">Run program</button>
-
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

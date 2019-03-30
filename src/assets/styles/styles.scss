@@ -6,6 +6,7 @@
 
 /* Add a splash of color */
 @import "colors";
+@import "typography";
 
 /* Finally, our components */
 @import "environment";
@@ -14,14 +15,49 @@
 @import "player";
 
 body {
+  margin: 1em 0 0;
   background: $blackish;
-  color: $white;
-  font-family: 'Montserrat', sans-serif;
-}
-h1 {
-  font-family: 'Share Tech Mono', monospace;
-  font-weight: normal;
 }
 div {
   box-sizing: border-box;
+}
+button {
+  width: 300px;
+  text-align: center;
+  padding: 8px 10px;
+  background: $green;
+  border: none;
+  font-size: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 1280px;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.w-1 {
+  width: 100%;
+}
+.w-1-2 {
+  width: 50%;
+}
+
+.box-wrap {
+  margin-bottom: 2em;
+}
+.box {
+  padding: 14px;
+  box-sizing: content-box;
+  background-color: rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
 }

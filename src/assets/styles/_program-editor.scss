@@ -5,23 +5,8 @@
   margin-top: 1em;
 }
 .instruction-list {
+  display: table;
   min-width: 80px;
   height: 80px;
   padding-right: 80px;
-  display: table;
-
-  &.my-program {
-    border: 3px dashed $turquoise;
-  }
-}
-
-.instruction-block {
-  display: block;
-  float: left;
-  width: 80px;
-  height: 80px;
-  margin: 0.4em;
-  background-color: $turquoise;
-  text-align: center;
-  cursor: pointer;
 }

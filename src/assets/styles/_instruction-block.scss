@@ -1,12 +1,17 @@
 @import "colors";
 
 .instruction-block {
-  display: block;
+  display: flex;
   float: left;
   width: 80px;
   height: 80px;
-  margin: 0.4em;
   background-color: $turquoise;
   text-align: center;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: 14px;
+  }
 }

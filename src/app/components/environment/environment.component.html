@@ -1,8 +1,9 @@
+<h2 class="color-green">Environment</h2>
 <div class="environment">
   <div class="grid">
     <app-player [@player]="environment.player"></app-player>
     <div *ngFor="let row of environment.tiles" class="row">
-      <div *ngFor="let tile of row" class="tile">TILE</div>
+      <div *ngFor="let tile of row" class="tile"></div>
     </div>
   </div>
 </div>
