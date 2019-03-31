@@ -14,16 +14,16 @@ export class ProgramEditorComponent {
   instructions = INSTRUCTIONS;
 
   constructor(private dragulaService: DragulaService) {
-    dragulaService.createGroup('COPYABLE', {
+    dragulaService.createGroup('program-editor', {
       copy: (el, source) => {
-        return source.id === 'left';
+        return source.id === 'instruction-set';
       },
       copyItem: (instruction: Instruction) => {
         return Object.assign({}, instruction);
       },
-      accepts: (el, target, source, sibling) => {
-        // To avoid dragging from right to left container
-        return target.id !== 'left';
+      accepts: (el, target) => {
+        // To avoid dragging from program to instruction set
+        return target.id !== 'instruction-set';
       },
       removeOnSpill: true,
       direction: 'horizontal',
