@@ -5,7 +5,7 @@
   float: left;
   width: 80px;
   height: 80px;
-  background-color: $turquoise;
+  background-color: $blue;
   text-align: center;
   cursor: pointer;
   justify-content: center;
@@ -13,5 +13,33 @@
 
   &:not(:last-child) {
     margin-right: 14px;
+  }
+
+}
+
+.instruction-block-inner {
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+
+  &.move-forward {
+    background: url('../images/move-forward.png') no-repeat center center;
+    background-size: cover;
+  }
+  &.move-backward {
+    background: url('../images/move-backward.png') no-repeat center center;
+    background-size: cover;
+  }
+  &.turn-left {
+    background: url('../images/turn-left.png') no-repeat center center;
+    background-size: cover;
+  }
+  &.turn-right {
+    background: url('../images/turn-right.png') no-repeat center center;
+    background-size: cover;
+  }
+  &.turn-around {
+    background: url('../images/turn-around.png') no-repeat center center;
+    background-size: cover;
   }
 }

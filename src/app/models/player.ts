@@ -45,6 +45,6 @@ export class Player {
     this.rotation += 90;
   }
   turnAround() {
-    this.rotation += 180;
+    this.rotation -= 180;
   }
 }
