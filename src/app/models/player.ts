@@ -31,6 +31,9 @@ export class Player {
   moveForward() {
     this.move(1);
   }
+  moveSprint() {
+    this.move(2);
+  }
   moveBackward() {
     this.move(-1);
   }

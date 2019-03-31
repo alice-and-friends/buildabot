@@ -9,24 +9,30 @@ export const INSTRUCTIONS: Instruction[] = [
   },
   {
     id: 12,
+    name: 'Sprint',
+    f: 'moveSprint',
+    cssClass: 'move-sprint',
+  },
+  {
+    id: 13,
     name: 'Move backward',
     f: 'moveBackward',
     cssClass: 'move-backward',
   },
   {
-    id: 13,
+    id: 14,
     name: 'Turn left',
     f: 'turnLeft',
     cssClass: 'turn-left',
   },
   {
-    id: 14,
+    id: 15,
     name: 'Turn right',
     f: 'turnRight',
     cssClass: 'turn-right',
   },
   {
-    id: 15,
+    id: 16,
     name: 'Turn around',
     f: 'turnAround',
     cssClass: 'turn-around',
