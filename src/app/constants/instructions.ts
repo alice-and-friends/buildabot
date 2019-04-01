@@ -37,4 +37,10 @@ export const INSTRUCTIONS: Instruction[] = [
     f: 'turnAround',
     cssClass: 'turn-around',
   },
+  {
+    id: 17,
+    name: 'Sleep',
+    f: 'sleep',
+    cssClass: 'sleep',
+  }
 ];

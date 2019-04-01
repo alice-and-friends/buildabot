@@ -49,4 +49,11 @@ export class Player {
   turnAround() {
     this.rotation -= 180;
   }
+
+  /*
+   * Misc instructions
+   */
+  sleep() {
+    // do nothing
+  }
 }
