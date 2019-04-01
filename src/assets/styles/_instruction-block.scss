@@ -3,18 +3,14 @@
 .instruction-block {
   display: flex;
   float: left;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
+  margin: 7px;
   background-color: $blue;
   text-align: center;
   cursor: pointer;
   justify-content: center;
   align-items: center;
-
-  &:not(:last-child) {
-    margin-right: 14px;
-  }
-
 }
 
 .instruction-block-inner {
