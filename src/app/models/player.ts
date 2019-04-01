@@ -17,7 +17,7 @@ export class Player {
     if (r === 0) {
       this.position.y -= distance;
     }
-    else if (r === 90) {
+    else if (r === 90 || r === -270) {
       this.position.x += distance;
     }
     else if (Math.abs(r) === 180) {
