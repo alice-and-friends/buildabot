@@ -5,12 +5,12 @@ export class Environment {
   player: Player;
   tiles: [][];
 
-  constructor(opts) {
-    this.boardSize = opts.boardSize;
+  constructor(level) {
+    this.boardSize = level.boardSize;
     this.tiles = [];
 
     this.player = new Player({
-      position: opts.startPos,
+      position: level.startPos,
       rotation: 0,
     });
 
