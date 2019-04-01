@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LEVELS } from 'app/constants/levels';
 import { Environment } from 'app/models/environment';
 import { Level } from './models/level';
+import Utils from './utils';
 
 export enum State {
   init, loading, ready, running, finished
@@ -35,7 +36,7 @@ export class AppComponent {
     });
 
     // Prepare the environment
-    this.environment = new Environment(JSON.parse(JSON.stringify(this.level)));
+    this.environment = new Environment(Utils.copy(this.level));
 
     // Prepare an empty program
     this.program = {
@@ -48,11 +49,11 @@ export class AppComponent {
 
   runProgram() {
     this.state = State.running;
-    this.environment.runProgram(this.program);
+    this.environment.runProgram(Utils.copy(this.program));
     this.state = State.finished;
   }
 
   resetEnvironment() {
-    this.environment.reset(JSON.parse(JSON.stringify(this.level)));
+    this.environment.reset(Utils.copy(this.level));
   }
 }

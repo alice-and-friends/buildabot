@@ -32,7 +32,7 @@ export class Environment {
 
   // Runs a given program
   runProgram(program) {
-    const instructions = JSON.parse(JSON.stringify(program.instructions));
+    const instructions = program.instructions;
     console.log('Executing instruction sequence:', instructions);
     const myInterval = setInterval(() => {
       if (instructions && instructions.length) {
