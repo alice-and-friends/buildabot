@@ -13,19 +13,18 @@ export class Player {
    * Functions for moving the player token
    */
   move(distance) {
-    switch (this.rotation % 360) {
-      case 0:
-        this.position.y -= distance;
-        break;
-      case 90:
-        this.position.x += distance;
-        break;
-      case 180:
-        this.position.y += distance;
-        break;
-      case 270:
-        this.position.x -= distance;
-        break;
+    const r = this.rotation % 360;
+    if (r === 0) {
+      this.position.y -= distance;
+    }
+    else if (r === 90) {
+      this.position.x += distance;
+    }
+    else if (Math.abs(r) === 180) {
+      this.position.y += distance;
+    }
+    else {
+      this.position.x -= distance;
     }
   }
   moveForward() {
