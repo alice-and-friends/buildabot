@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LEVELS } from 'app/constants/levels';
 import { Environment } from 'app/models/environment';
 
 @Component({
@@ -7,15 +8,20 @@ import { Environment } from 'app/models/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Buildabot';
-  environment = new Environment({
-    boardSize: 6,
-  });
-  program = {
-    name: 'HelloWorld',
-    instructions: [],
-  };
+  environment: Environment;
+  program: object;
 
+  constructor() {
+    const level = LEVELS[0];
+    this.environment = new Environment({
+      boardSize: level.boardSize,
+      startPos: level.startPos,
+    });
+    this.program = {
+      name: 'HelloWorld',
+      instructions: [],
+    };
+  }
   runProgram() {
     this.environment.runProgram(this.program);
   }

@@ -1,11 +1,11 @@
+import { Coordinates } from 'app/models/coordinates';
+
 export class Player {
-  posX: number;
-  posY: number;
+  position: Coordinates;
   rotation: number;
 
   constructor(opts) {
-    this.posX = opts.posX;
-    this.posY = opts.posY;
+    this.position = opts.position;
     this.rotation = opts.rotation;
   }
 
@@ -15,16 +15,16 @@ export class Player {
   move(distance) {
     switch (this.rotation % 360) {
       case 0:
-        this.posY -= distance;
+        this.position.y -= distance;
         break;
       case 90:
-        this.posX += distance;
+        this.position.x += distance;
         break;
       case 180:
-        this.posY += distance;
+        this.position.y += distance;
         break;
       case 270:
-        this.posX -= distance;
+        this.position.x -= distance;
         break;
     }
   }

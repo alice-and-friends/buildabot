@@ -10,8 +10,7 @@ export class Environment {
     this.tiles = [];
 
     this.player = new Player({
-      posX: 0,
-      posY: this.boardSize - 1,
+      position: opts.startPos,
       rotation: 0,
     });
 
