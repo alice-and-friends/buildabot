@@ -35,7 +35,7 @@ export class AppComponent {
     });
 
     // Prepare the environment
-    this.environment = new Environment(this.level);
+    this.environment = new Environment(JSON.parse(JSON.stringify(this.level)));
 
     // Prepare an empty program
     this.program = {
@@ -50,5 +50,9 @@ export class AppComponent {
     this.state = State.running;
     this.environment.runProgram(this.program);
     this.state = State.finished;
+  }
+
+  resetEnvironment() {
+    this.environment.reset(JSON.parse(JSON.stringify(this.level)));
   }
 }

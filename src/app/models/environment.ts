@@ -24,6 +24,13 @@ export class Environment {
     }
   }
 
+  // Resets the environment to starting conditions for the current level
+  reset(level) {
+    this.player.position = level.startPos;
+    this.player.rotation = 0;
+  }
+
+  // Runs a given program
   runProgram(program) {
     const instructions = JSON.parse(JSON.stringify(program.instructions));
     console.log('Executing instruction sequence:', instructions);
