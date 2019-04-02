@@ -9,7 +9,7 @@ import { DragulaService } from 'ng2-dragula';
   templateUrl: './program-editor.component.html',
 })
 export class ProgramEditorComponent {
-  @Input() program: Instruction[];
+  @Input() program: any;
 
   instructions = INSTRUCTIONS;
 
@@ -28,6 +28,10 @@ export class ProgramEditorComponent {
       removeOnSpill: true,
       direction: 'horizontal',
     });
+  }
+
+  addInstruction(instruction) {
+    this.program.instructions.push(instruction);
   }
 
 }

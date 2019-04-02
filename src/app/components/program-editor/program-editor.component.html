@@ -3,14 +3,25 @@
   <div class="box-wrap">
     <h2 class="color-green">Instruction set</h2>
     <div class="instruction-list box" dragula="program-editor" [(dragulaModel)]="instructions" id="instruction-set">
-      <app-instruction *ngFor="let c of instructions" [@instruction]="c" class="instruction-block">{{ c.name }}></app-instruction>
+      <app-instruction
+        *ngFor="let i of instructions"
+        [@instruction]="i"
+        class="instruction-block"
+        (click)="addInstruction(i)"
+      >
+      </app-instruction>
     </div>
   </div>
 
   <div class="box-wrap">
     <h2 class="color-green">Program memory</h2>
     <div class="instruction-list box w-1" dragula="program-editor" [(dragulaModel)]="program.instructions">
-      <app-instruction *ngFor="let c of program.instructions" [@instruction]="c" class="instruction-block">{{ c.name }}</app-instruction>
+      <app-instruction
+        *ngFor="let i of program.instructions"
+        [@instruction]="i"
+        class="instruction-block"
+      >
+      </app-instruction>
     </div>
   </div>
 
