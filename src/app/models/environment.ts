@@ -29,19 +29,4 @@ export class Environment {
     this.player.position = level.startPos;
     this.player.rotation = 0;
   }
-
-  // Runs a given program
-  runProgram(program) {
-    const instructions = program.instructions;
-    console.log('Executing instruction sequence:', instructions);
-    const myInterval = setInterval(() => {
-      if (instructions && instructions.length) {
-        const c = instructions.shift();
-        this.player[c.f]();
-      }
-      else {
-        clearInterval(myInterval);
-      }
-    }, 600);
-  }
 }
