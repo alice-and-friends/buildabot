@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LEVELS } from 'app/constants/levels';
 import { Environment } from 'app/models/environment';
 import { Level } from './models/level';
+import { Program } from './models/program';
 import Utils from './utils';
 
 export enum State {
@@ -17,7 +18,7 @@ export class AppComponent {
   state: State;
   level: Level;
   environment: Environment;
-  program: object;
+  program: Program;
 
   constructor() {
     // Set initial state
@@ -39,9 +40,7 @@ export class AppComponent {
     this.environment = new Environment(Utils.copy(this.level));
 
     // Prepare an empty program
-    this.program = {
-      instructions: [],
-    };
+    this.program = new Program();
 
     // Ready for player input
     this.state = State.ready;

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { INSTRUCTIONS } from 'app/constants/instructions';
 import { Instruction } from '../../models/instruction';
+import { Program } from '../../models/program';
 import { DragulaService } from 'ng2-dragula';
 
 
@@ -9,7 +10,7 @@ import { DragulaService } from 'ng2-dragula';
   templateUrl: './program-editor.component.html',
 })
 export class ProgramEditorComponent {
-  @Input() program: any;
+  @Input() program: Program;
 
   instructions = INSTRUCTIONS;
 
