@@ -71,6 +71,7 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "directive-class-suffix": true,
-    "one-line": false
+    "one-line": false,
+    "whitespace": [true, "check-module"]
   }
 }
