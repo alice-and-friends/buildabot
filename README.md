@@ -1,4 +1,4 @@
-# Buildabot
+# Buildabot [![CircleCI](https://circleci.com/gh/alice-and-friends/buildabot.svg?style=svg)](https://circleci.com/gh/alice-and-friends/buildabot)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
