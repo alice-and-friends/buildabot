@@ -49,17 +49,18 @@ export class AppComponent {
   runProgram() {
     this.state = State.running;
 
-    const program = Utils.copy(this.program);
-    console.log('Executing instruction sequence:', program.instructions);
-    const myInterval = setInterval(() => {
-      if (program.instructions.length) {
-        const c = program.instructions.shift();
-        this.environment.player[c.f]();
+    const p = this.program.copy(); // Grab a copy of the program to run
+
+    p.run(() => { // For each tick:
+      const instruction = p.instructions.shift(); // Get the next instruction
+      this.environment.player[instruction.f](); // Execute instruction
+
+      // End the program when there are no instructions remaining
+      if (p.instructions.length === 0) {
+        p.stop();
       }
-      else {
-        clearInterval(myInterval);
-      }
-    }, 600);
+    }, 800);
+
 
     this.state = State.finished;
   }
