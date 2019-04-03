@@ -17,3 +17,17 @@
     border: 1px solid $black;
   }
 }
+
+.object{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.battery {
+  width: 100px;
+  height: 100px;
+  mask: url('../images/battery.svg') no-repeat center center;
+  mask-size: 40%;
+  background-color: $green;
+}

@@ -7,6 +7,8 @@
   width: 100px;
   height: 100px;
   transition: all 0.5s ease;
-  background: url('../images/robot.png') no-repeat center center;
-  background-size: 80%;
+
+  mask: url('../images/robot.svg') no-repeat center center;
+  mask-size: 70%;
+  background-color: $green;
 }

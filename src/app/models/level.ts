@@ -9,7 +9,7 @@ export class Level {
   constructor(opts) {
     this.id = opts.id;
     this.boardSize = opts.boardSize;
-    this.startPos = opts.startPos;
-    this.winPos = opts.winPos;
+    this.startPos = new Coordinates(opts.startPos.x, opts.startPos.y);
+    this.winPos = new Coordinates(opts.winPos.x, opts.winPos.y);
   }
 }

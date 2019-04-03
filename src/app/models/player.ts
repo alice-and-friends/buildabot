@@ -5,7 +5,7 @@ export class Player {
   rotation: number;
 
   constructor(opts) {
-    this.position = opts.position;
+    this.position = new Coordinates(opts.position.x, opts.position.y);
     this.rotation = opts.rotation;
   }
 

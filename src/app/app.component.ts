@@ -8,6 +8,9 @@ import Utils from './utils';
 export enum State {
   init, loading, ready, running, finished
 }
+export enum Result {
+  undetermined, success, failure
+}
 
 @Component({
   selector: 'app-root',
@@ -15,7 +18,9 @@ export enum State {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public Result = Result;
   state: State;
+  result: Result;
   level: Level;
   environment: Environment;
   program: Program;
@@ -23,18 +28,20 @@ export class AppComponent {
   constructor() {
     // Set initial state
     this.state = State.init;
+    this.result = Result.undetermined;
 
     // Load the first level
-    this.loadLevel(1);
+    const levelOne = LEVELS.find((level) => {
+      return level.id === 1;
+    });
+    this.loadLevel(levelOne);
   }
 
-  loadLevel(id) {
+  loadLevel(level) {
     this.state = State.loading;
 
     // Load the desired level
-    this.level = LEVELS.find((level) => {
-      return level.id === id;
-    });
+    this.level = level;
 
     // Prepare the environment
     this.environment = new Environment(Utils.copy(this.level));
@@ -52,11 +59,20 @@ export class AppComponent {
     const p = this.program.copy(); // Grab a copy of the program to run
 
     p.run(() => { // For each tick:
-      const instruction = p.instructions.shift(); // Get the next instruction
-      this.environment.player[instruction.f](); // Execute instruction
 
-      // End the program when there are no instructions remaining
+      // End the program if there are no instructions
       if (p.instructions.length === 0) {
+        p.stop();
+        return;
+      }
+
+      // Get the next instruction and execute it
+      const instruction = p.instructions.shift();
+      this.environment.player[instruction.f]();
+
+      // Check if win condition is met
+      if (this.environment.player.position.matches(this.level.winPos)) {
+        this.result = Result.success;
         p.stop();
       }
     }, 800);

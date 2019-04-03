@@ -6,6 +6,12 @@ import { ProgramEditorComponent } from './components/program-editor/program-edit
 import { InstructionComponent } from './components/instruction/instruction.component';
 import { PlayerComponent } from './components/player/player.component';
 import { DragulaModule } from 'ng2-dragula';
+import { Environment } from 'app/models/environment';
+import { Coordinates } from 'app/models/coordinates';
+import { Level } from 'app/models/level';
+import { Program } from 'app/models/program';
+import { INSTRUCTIONS } from 'app/constants/instructions';
+import { Result } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -28,6 +34,26 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  });
+
+  it('should win', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    app.loadLevel(new Level({
+      id: 1,
+      boardSize: 3,
+      startPos: new Coordinates(1, 1),
+      winPos: new Coordinates(1, 0),
+    }));
+    app.program = new Program();
+    app.program.instructions = [
+      INSTRUCTIONS.find((instruction) => {
+        return instruction.f === 'moveForward';
+      })
+    ];
+    app.runProgram();
+    console.log(app.environment.player);
+    expect(app.result).toEqual(Result.success);
   });
 
   /*

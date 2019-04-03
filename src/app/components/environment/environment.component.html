@@ -2,6 +2,14 @@
 <div class="environment">
   <div class="grid">
     <app-player [@player]="environment.player"></app-player>
+    <div
+      class="object battery"
+      [ngStyle]="{
+        'left.px': environment.winPos.x * 100,
+        'top.px': environment.winPos.y * 100
+      }"
+    >
+    </div>
     <div *ngFor="let row of environment.tiles" class="row">
       <div *ngFor="let tile of row" class="tile"></div>
     </div>

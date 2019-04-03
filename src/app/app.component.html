@@ -6,8 +6,14 @@
 
   <div class="f-right w-1-2">
     <app-program-editor [@program]="program"></app-program-editor>
-    <button (click)="runProgram()" class="button-primary">Run program</button>
-    <button (click)="resetEnvironment()" style="margin-left: 1em;">Reset starting conditions</button>
+
+    <div *ngIf="result === Result.success; else elseBlock">
+      You win! ✨
+    </div>
+    <ng-template #elseBlock>
+      <button (click)="runProgram()" class="button-primary">Run program</button>
+      <button (click)="resetEnvironment()" style="margin-left: 1em;">Reset starting conditions</button>
+    </ng-template>
   </div>
 
 </div>
