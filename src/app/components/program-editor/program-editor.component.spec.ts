@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DragulaModule } from 'ng2-dragula';
 
 import { ProgramEditorComponent } from './program-editor.component';
+import { InstructionComponent } from 'app/components/instruction/instruction.component';
+import { Program } from 'app/models/program';
 
 describe('ProgramEditorComponent', () => {
   let component: ProgramEditorComponent;
@@ -8,7 +12,14 @@ describe('ProgramEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgramEditorComponent ]
+      imports: [
+        NoopAnimationsModule,
+        DragulaModule.forRoot()
+      ],
+      declarations: [
+        ProgramEditorComponent,
+        InstructionComponent
+      ],
     })
     .compileComponents();
   }));
@@ -16,6 +27,7 @@ describe('ProgramEditorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProgramEditorComponent);
     component = fixture.componentInstance;
+    component.program = new Program();
     fixture.detectChanges();
   });
 

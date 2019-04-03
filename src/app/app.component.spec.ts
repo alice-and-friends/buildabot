@@ -1,15 +1,25 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { EnvironmentComponent } from './components/environment/environment.component';
+import { ProgramEditorComponent } from './components/program-editor/program-editor.component';
+import { InstructionComponent } from './components/instruction/instruction.component';
+import { PlayerComponent } from './components/player/player.component';
+import { DragulaModule } from 'ng2-dragula';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        DragulaModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        EnvironmentComponent,
+        ProgramEditorComponent,
+        InstructionComponent,
+        PlayerComponent
       ],
     }).compileComponents();
   }));
@@ -20,6 +30,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  /*
   it(`should have as title 'buildabot'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
@@ -32,4 +43,5 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to buildabot!');
   });
+  */
 });

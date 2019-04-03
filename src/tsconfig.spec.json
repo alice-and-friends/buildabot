@@ -5,7 +5,11 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@myproject/*": ["src/app/*"]
+    }
   },
   "files": [
     "test.ts",
