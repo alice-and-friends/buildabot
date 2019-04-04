@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { INSTRUCTIONS } from 'app/constants/instructions';
 import { Instruction } from '../../models/instruction';
 import { Program } from '../../models/program';
 import { DragulaService } from 'ng2-dragula';
@@ -11,8 +10,7 @@ import { DragulaService } from 'ng2-dragula';
 })
 export class ProgramEditorComponent {
   @Input() program: Program;
-
-  instructions = INSTRUCTIONS;
+  @Input() instructionSet: Instruction[];
 
   constructor(private dragulaService: DragulaService) {
     dragulaService.createGroup('program-editor', {

@@ -2,9 +2,9 @@
 
   <div class="box-wrap">
     <h2 class="color-green">Instruction set</h2>
-    <div class="instruction-list box" dragula="program-editor" [(dragulaModel)]="instructions" id="instruction-set">
+    <div class="instruction-list box" dragula="program-editor" [(dragulaModel)]="instructionSet" id="instruction-set">
       <app-instruction
-        *ngFor="let i of instructions"
+        *ngFor="let i of instructionSet"
         [@instruction]="i"
         class="instruction-block"
         (click)="addInstruction(i)"

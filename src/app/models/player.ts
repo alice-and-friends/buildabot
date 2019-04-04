@@ -51,7 +51,7 @@ export class Player {
   }
 
   /*
-   * Misc instructions
+   * Miscellaneous
    */
   sleep() {
     // do nothing

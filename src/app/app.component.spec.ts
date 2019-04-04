@@ -6,7 +6,7 @@ import { ProgramEditorComponent } from './components/program-editor/program-edit
 import { InstructionComponent } from './components/instruction/instruction.component';
 import { PlayerComponent } from './components/player/player.component';
 import { DragulaModule } from 'ng2-dragula';
-import { Environment } from 'app/models/environment';
+import { getInstruction } from 'app/getters';
 import { Coordinates } from 'app/models/coordinates';
 import { Level } from 'app/models/level';
 import { Program } from 'app/models/program';
@@ -47,12 +47,9 @@ describe('AppComponent', () => {
     }));
     app.program = new Program();
     app.program.instructions = [
-      INSTRUCTIONS.find((instruction) => {
-        return instruction.f === 'moveForward';
-      })
+      getInstruction('moveForward'),
     ];
     app.runProgram();
-    console.log(app.environment.player);
     expect(app.result).toEqual(Result.success);
   });
 

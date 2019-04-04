@@ -5,7 +5,7 @@
   </div>
 
   <div class="f-right w-1-2">
-    <app-program-editor [@program]="program"></app-program-editor>
+    <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
 
     <div *ngIf="result === Result.success; else elseBlock">
       You win! ✨

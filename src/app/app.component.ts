@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LEVELS } from 'app/constants/levels';
+import { INSTRUCTIONS } from 'app/constants/instructions';
 import { Environment } from 'app/models/environment';
+import { Instruction } from 'app/models/instruction';
 import { Level } from './models/level';
 import { Program } from './models/program';
 import Utils from './utils';
@@ -23,6 +25,7 @@ export class AppComponent {
   result: Result;
   level: Level;
   environment: Environment;
+  instructionSet: Instruction[];
   program: Program;
 
   constructor() {
@@ -48,6 +51,9 @@ export class AppComponent {
 
     // Prepare an empty program
     this.program = new Program();
+
+    // Prepare instruction set
+    this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet : INSTRUCTIONS;
 
     // Ready for player input
     this.state = State.ready;
