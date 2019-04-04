@@ -5,14 +5,28 @@
   </div>
 
   <div class="f-right w-1-2">
+    <h2 class="color-green">Scenario</h2>
+    <div class="box-wrap">
+      <div class="box">
+        <div class="controls">
+          <select [(ngModel)]="selectedLevel">
+            <option *ngFor="let l of LEVELS" [ngValue]="l">Level {{ l.id }}</option>
+          </select>
+          <button (click)="loadLevel(selectedLevel)">Load</button>
+        </div>
+      </div>
+    </div>
+
     <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
 
     <div *ngIf="result === Result.success; else elseBlock">
       You win! ✨
     </div>
     <ng-template #elseBlock>
-      <button (click)="runProgram()" class="button-primary">Run program</button>
-      <button (click)="resetEnvironment()" style="margin-left: 1em;">Reset starting conditions</button>
+      <div class="controls">
+        <button (click)="runProgram()" class="button-big">Run program</button>
+        <button (click)="resetEnvironment()" class="button-big button-secondary" style="margin-left: 1em;">Reset starting conditions</button>
+      </div>
     </ng-template>
   </div>
 

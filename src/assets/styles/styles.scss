@@ -1,19 +1,15 @@
 /* Reset browser defaults */
 @import "normalize";
 
+/* Utilities */
+@import "svg-utils";
+
 /* Third party libraries */
 @import "dragula";
 
-/* Add a splash of color */
+/* Set up some basics */
 @import "colors";
 @import "typography";
-
-/* Finally, our components */
-@import "environment";
-@import "program-editor";
-@import "instruction-block";
-@import "player";
-
 body {
   margin: 1em 0 0;
   background: $blackish;
@@ -21,47 +17,12 @@ body {
 div {
   box-sizing: border-box;
 }
-button {
-  width: 300px;
-  text-align: center;
-  padding: 8px 10px;
-  background: $white;
-  border: none;
-  font-size: inherit;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: $black;
-  cursor: pointer;
 
-  &.button-primary {
-    background: $green;
-  }
-}
+/* Styles shared between our components */
+@import "shared";
 
-.wrapper {
-  margin: 0 auto;
-  width: 1280px;
-}
-.f-left {
-  float: left;
-}
-.f-right {
-  float: right;
-}
-.w-1 {
-  width: 100%;
-}
-.w-1-2 {
-  width: 50%;
-}
-
-.box-wrap {
-  margin-bottom: 2em;
-}
-.box {
-  padding: 7px;
-  box-sizing: content-box;
-  background-color: rgba(0,0,0,.2);
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: 3px;
-}
+/* Finally, our components */
+@import "environment";
+@import "program-editor";
+@import "instruction-block";
+@import "player";

@@ -1,0 +1,70 @@
+/*
+ * Page layout
+ */
+.wrapper {
+  margin: 0 auto;
+  width: 1280px;
+}
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.w-1 {
+  width: 100%;
+}
+.w-1-2 {
+  width: 50%;
+}
+
+/*
+ * Forms, buttons, etc
+ */
+.controls > * {
+  margin-right: 12px;
+}
+.controls :last-child {
+  margin-left: 0;
+}
+
+button, select {
+  position: relative;
+  padding: 5px 7px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid $dark-green;
+  background-color: transparent;
+  text-align: center;
+  letter-spacing: 1px;
+  color: $dark-green;
+  cursor: pointer;
+
+  &.button-big {
+    width: 300px;
+    padding: 8px 10px;
+  }
+  &.button-secondary {
+    border-color: $white;
+    color: $white;
+  }
+}
+select {
+  -webkit-appearance: none;
+  background-image: url(svg-encode("<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='" + $dark-green +  "' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>"));
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  border-radius: 0;
+  padding-right: 4%;
+}
+
+.box-wrap {
+  margin-bottom: 2em;
+}
+.box {
+  padding: 14px;
+  box-sizing: content-box;
+  background-color: rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
+}

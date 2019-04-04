@@ -20,10 +20,12 @@ export enum Result {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public LEVELS = LEVELS;
   public Result = Result;
   state: State;
   result: Result;
   level: Level;
+  selectedLevel: Level;
   environment: Environment;
   instructionSet: Instruction[];
   program: Program;
@@ -37,7 +39,8 @@ export class AppComponent {
     const levelOne = LEVELS.find((level) => {
       return level.id === 1;
     });
-    this.loadLevel(levelOne);
+    this.selectedLevel = levelOne; // Set the default value of level selector dropdown
+    this.loadLevel(this.selectedLevel);
   }
 
   loadLevel(level) {
@@ -45,6 +48,9 @@ export class AppComponent {
 
     // Load the desired level
     this.level = level;
+
+    // Reset previous results
+    this.result = Result.undetermined;
 
     // Prepare the environment
     this.environment = new Environment(Utils.copy(this.level));

@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { EnvironmentComponent } from './components/environment/environment.component';
 import { ProgramEditorComponent } from './components/program-editor/program-editor.component';
@@ -18,7 +19,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        DragulaModule.forRoot()
+        DragulaModule.forRoot(),
+        FormsModule
       ],
       declarations: [
         AppComponent,
