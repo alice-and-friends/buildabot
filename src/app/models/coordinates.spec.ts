@@ -2,6 +2,6 @@ import { Coordinates } from './coordinates';
 
 describe('Coordinates', () => {
   it('should create an instance', () => {
-    expect(new Coordinates(0, 0)).toBeTruthy();
+    expect(new Coordinates({x: 0, y: 0})).toBeTruthy();
   });
 });

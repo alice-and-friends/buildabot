@@ -12,7 +12,7 @@ export class Environment {
     this.tiles = [];
 
     this.player = new Player({
-      position: new Coordinates(level.startPos.x, level.startPos.y),
+      position: new Coordinates({x: level.startPos.x, y: level.startPos.y}),
       rotation: 0,
     });
     this.winPos = level.winPos;
@@ -29,7 +29,7 @@ export class Environment {
 
   // Resets the environment to starting conditions for the current level
   reset(level) {
-    this.player.position = new Coordinates(level.startPos.x, level.startPos.y);
+    this.player.position = new Coordinates({x: level.startPos.x, y: level.startPos.y});
     this.player.rotation = 0;
   }
 }

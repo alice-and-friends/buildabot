@@ -42,8 +42,8 @@ describe('AppComponent', () => {
     app.loadLevel(new Level({
       id: 1,
       boardSize: 3,
-      startPos: new Coordinates(1, 1),
-      winPos: new Coordinates(1, 0),
+      startPos: new Coordinates({x: 1, y: 1}),
+      winPos: new Coordinates({x: 1, y: 0}),
     }));
     app.program = new Program();
     app.program.instructions = [

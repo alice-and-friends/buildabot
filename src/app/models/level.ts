@@ -11,8 +11,8 @@ export class Level {
   constructor(opts) {
     this.id = opts.id;
     this.boardSize = opts.boardSize;
-    this.startPos = new Coordinates(opts.startPos.x, opts.startPos.y);
-    this.winPos = new Coordinates(opts.winPos.x, opts.winPos.y);
+    this.startPos = new Coordinates({x: opts.startPos.x, y: opts.startPos.y});
+    this.winPos = new Coordinates({x: opts.winPos.x, y: opts.winPos.y});
     this.instructionSet = opts.instructionSet || [];
   }
 }

@@ -7,8 +7,8 @@ function getTestEnv() {
   const level = new Level({
     id: 1,
     boardSize: 3,
-    startPos: new Coordinates(1, 1),
-    winPos: new Coordinates(0, 0),
+    startPos: new Coordinates({x: 1, y: 1}),
+    winPos: new Coordinates({x: 0, y: 0}),
   });
   return new Environment(level);
 }
@@ -23,19 +23,19 @@ describe('Program', () => {
 
     // Start a series of movements and check the resulting positions
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 0));
+    expect(player.position).toEqual(new Coordinates({x:1, y :0}));
     player.turnRight();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(2, 0));
+    expect(player.position).toEqual(new Coordinates({x:2, y :0}));
     player.turnRight();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(2, 1));
+    expect(player.position).toEqual(new Coordinates({x:2, y :1}));
     player.turnRight();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 1));
+    expect(player.position).toEqual(new Coordinates({x:1, y :1}));
     player.turnRight();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 0));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 0}));
   });
 
   it('should move in a circle, counter-clockwise forwards', () => {
@@ -43,19 +43,19 @@ describe('Program', () => {
 
     // Start a series of movements and check the resulting positions
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 0));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 0}));
     player.turnLeft();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(0, 0));
+    expect(player.position).toEqual(new Coordinates({x:0, y: 0}));
     player.turnLeft();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(0, 1));
+    expect(player.position).toEqual(new Coordinates({x:0, y: 1}));
     player.turnLeft();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 1));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 1}));
     player.turnLeft();
     player.moveForward();
-    expect(player.position).toEqual(new Coordinates(1, 0));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 0}));
   });
 
   it('should move in a circle, clockwise backwards', () => {
@@ -63,19 +63,19 @@ describe('Program', () => {
 
     // Start a series of movements and check the resulting positions
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 2));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 2}));
     player.turnLeft();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(2, 2));
+    expect(player.position).toEqual(new Coordinates({x:2, y: 2}));
     player.turnLeft();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(2, 1));
+    expect(player.position).toEqual(new Coordinates({x:2, y: 1}));
     player.turnLeft();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 1));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 1}));
     player.turnLeft();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 2));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 2}));
   });
 
   it('should move in a circle, counter-clockwise backwards', () => {
@@ -83,18 +83,18 @@ describe('Program', () => {
 
     // Start a series of movements and check the resulting positions
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 2));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 2}));
     player.turnRight();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(0, 2));
+    expect(player.position).toEqual(new Coordinates({x:0, y: 2}));
     player.turnRight();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(0, 1));
+    expect(player.position).toEqual(new Coordinates({x:0, y: 1}));
     player.turnRight();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 1));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 1}));
     player.turnRight();
     player.moveBackward();
-    expect(player.position).toEqual(new Coordinates(1, 2));
+    expect(player.position).toEqual(new Coordinates({x:1, y: 2}));
   });
 });

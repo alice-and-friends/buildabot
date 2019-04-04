@@ -19,7 +19,7 @@ describe('PlayerComponent', () => {
     fixture = TestBed.createComponent(PlayerComponent);
     component = fixture.componentInstance;
     component.player = new Player({
-      position: new Coordinates(0, 0),
+      position: new Coordinates({x: 0, y: 0}),
       rotation: 0,
     });
     fixture.detectChanges();

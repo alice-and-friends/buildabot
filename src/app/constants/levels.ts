@@ -6,8 +6,8 @@ export const LEVELS = [
   new Level({
     id: 1,
     boardSize: 3,
-    startPos: new Coordinates(1, 2),
-    winPos: new Coordinates(0, 0),
+    startPos: new Coordinates({x: 1, y: 2}),
+    winPos: new Coordinates({x: 0, y: 0}),
     instructionSet: [
       // getters.getInstruction('moveForward'),
     ],

@@ -2,9 +2,9 @@ export class Coordinates {
   x: number;
   y: number;
 
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
+  constructor(opts) {
+    this.x = opts.x;
+    this.y = opts.y;
   }
 
   matches(c) {
