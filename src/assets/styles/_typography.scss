@@ -15,6 +15,15 @@ h2 {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+h3 {
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 .color-green {
+  color: $green;
+}
+.color-dark-green {
   color: $green;
 }

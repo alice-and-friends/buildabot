@@ -17,6 +17,9 @@ body {
 div {
   box-sizing: border-box;
 }
+code {
+  color: $turquoise;
+}
 
 /* Styles shared between our components */
 $standard-padding: 14px;
