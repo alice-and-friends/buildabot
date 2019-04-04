@@ -62,9 +62,12 @@ select {
   margin-bottom: 2em;
 }
 .box {
-  padding: 14px;
-  box-sizing: content-box;
+  padding: $standard-padding;
   background-color: rgba(0,0,0,.2);
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 3px;
+
+  &.half-padding {
+    padding: $standard-padding / 2;
+  }
 }

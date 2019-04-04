@@ -1,12 +1,19 @@
+@import "shared";
 @import "colors";
 
-.instruction-list-wrap {
-  display: table;
-  margin-top: 1em;
+.ilw-flex {
+  display: flex;
+  justify-content: space-between;
+
+  .clear-button {
+    margin-top: 3px;
+    height: min-content;
+  }
 }
 .instruction-list {
   display: table;
-  min-width: 80px;
-  height: 80px;
-  padding: 7px;
+  width: 100%;
+  height: 75px + $standard-padding;
 }
+
+

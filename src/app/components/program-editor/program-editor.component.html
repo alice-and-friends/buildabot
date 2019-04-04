@@ -2,7 +2,8 @@
 
   <div class="box-wrap">
     <h2 class="color-green">Instruction set</h2>
-    <div class="box instruction-list" dragula="program-editor" [(dragulaModel)]="instructionSet" id="instruction-set">
+    <div class="box half-padding">
+    <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="instructionSet" id="instruction-set">
       <app-instruction
         *ngFor="let i of instructionSet"
         [@instruction]="i"
@@ -11,17 +12,23 @@
       >
       </app-instruction>
     </div>
+    </div>
   </div>
 
   <div class="box-wrap">
-    <h2 class="color-green">Program memory</h2>
-    <div class="box w-1 instruction-list" dragula="program-editor" [(dragulaModel)]="program.instructions">
-      <app-instruction
-        *ngFor="let i of program.instructions"
-        [@instruction]="i"
-        class="instruction-block"
-      >
-      </app-instruction>
+    <div class="ilw-flex">
+      <h2 class="color-green">Program memory</h2>
+      <button (click)="program.instructions = []" class="clear-button">Clear</button>
+    </div>
+    <div class="box half-padding">
+      <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="program.instructions">
+        <app-instruction
+          *ngFor="let i of program.instructions"
+          [@instruction]="i"
+          class="instruction-block"
+        >
+        </app-instruction>
+      </div>
     </div>
   </div>
 
