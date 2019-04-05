@@ -8,7 +8,8 @@ export const LEVELS = [
     title: 'Tutorial (1/2)',
     description: [
       'Welcome! In this tutorial you need to program your robot to collect a battery.',
-      'Click on the <code>Forward instruction</code> in the <code class="color-dark-green">Instruction set</code> to add it to the program memory. ' +
+      'Click on the <code>Forward instruction</code> in the <code class="color-dark-green">Instruction set</code> ' +
+      'to add it to the program memory. ' +
       'Then click on <code class="color-dark-green">Run program</code> to execute the instruction.'
     ],
     boardSize: 3,
@@ -24,7 +25,7 @@ export const LEVELS = [
     description: [
       'This time you will need to do some turning in order to reach the battery. ' +
       'Click on the <code>instructions</code> below to add them to the program. Run the program when you are ready.',
-      'Tip: You can add the same instruction more than once.'
+      '<span class="bubble">Tip: You can add the same instruction more than once.</span>'
     ],
     boardSize: 3,
     startPos: new Coordinates({x: 1, y: 2}),

@@ -35,3 +35,8 @@ p {
 .color-dark-green {
   color: $green;
 }
+.bubble {
+  display: block;
+  padding: 8px 12px;
+  background: $dark-grey;
+}
