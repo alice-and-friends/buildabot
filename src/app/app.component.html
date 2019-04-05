@@ -32,6 +32,13 @@
       </div>
     </div>
 
+    <div [hidden]="result !== Result.undetermined">
+      <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
+      <div class="controls">
+        <button (click)="runProgram()" class="button-big">Run program</button>
+      </div>
+    </div>
+
     <div [hidden]="result !== Result.success">
       <div class="box-header">
         <h2>Results</h2>
@@ -47,13 +54,22 @@
       </div>
     </div>
 
-    <div [hidden]="result === Result.success">
-      <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
-      <div class="controls">
-        <button (click)="runProgram()" class="button-big">Run program</button>
-        <button (click)="resetEnvironment()" class="button-big button-secondary" style="margin-left: 1em;">Reset starting conditions</button>
+    <div [hidden]="result !== Result.failure">
+      <div class="box-header">
+        <h2>Results</h2>
+      </div>
+      <div class="box-wrap">
+        <div class="box">
+          <h3>Uh-oh.</h3>
+          <p>Looks like you missed your target.</p>
+          <p>Try again:</p>
+          <div class="controls">
+            <button *ngIf="nextLevel" (click)="resetLevel()" class="button-big">Try again</button>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 
 </div>

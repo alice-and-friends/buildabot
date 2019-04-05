@@ -102,7 +102,9 @@ export class AppComponent {
     }, 800);
   }
 
-  resetEnvironment() {
+  resetLevel() {
     this.environment.reset(Utils.copy(this.level));
+    this.state = State.ready;
+    this.result = Result.undetermined;
   }
 }
