@@ -5,6 +5,12 @@
     <div class="box-wrap">
       <div class="box">
         <app-environment [@environment]="environment"></app-environment>
+        <div class="machine-state">
+          State:&nbsp;
+          <span *ngIf="state === State.ready">Ready</span>
+          <span *ngIf="state === State.running">Running</span>
+          <span *ngIf="state === State.finished">Finished</span>
+        </div>
       </div>
     </div>
   </div>
@@ -26,17 +32,28 @@
       </div>
     </div>
 
-    <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
-
-    <div *ngIf="result === Result.success; else elseBlock">
-      You win! ✨
+    <div [hidden]="result !== Result.success">
+      <div class="box-header">
+        <h2>Results</h2>
+      </div>
+      <div class="box-wrap">
+        <div class="box">
+          <h3>Success!</h3>
+          <p>You did it! ✨</p>
+          <div class="controls">
+            <button *ngIf="nextLevel" (click)="loadLevel(nextLevel)" class="button-big">Continue to next level</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <ng-template #elseBlock>
+
+    <div [hidden]="result === Result.success">
+      <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
       <div class="controls">
         <button (click)="runProgram()" class="button-big">Run program</button>
         <button (click)="resetEnvironment()" class="button-big button-secondary" style="margin-left: 1em;">Reset starting conditions</button>
       </div>
-    </ng-template>
+    </div>
   </div>
 
 </div>

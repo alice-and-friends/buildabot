@@ -23,11 +23,12 @@ export class Program {
       }, tickRate);
     }
   }
-  stop() {
+  stop(callback) {
     if (this.runtime) {
       clearInterval(this.runtime);
     }
     this.state = State.stopped;
+    callback();
   }
   copy() {
     const p = new Program();

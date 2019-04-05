@@ -20,7 +20,7 @@ header {
  * Forms, buttons, etc
  */
 .controls {
-  /*margin-bottom: $standard-spacing;*/
+  margin-top: 20px;
 }
 .controls > * {
   margin-right: 12px;
@@ -86,5 +86,16 @@ $box-padding: 14px;
 
   &.half-padding {
     padding: $box-padding / 2;
+  }
+}
+
+.machine-state {
+  display: flex;
+  justify-content: center;
+  margin-top: $box-padding;
+  color: $yellow;
+
+  > span {
+    font-style: italic;
   }
 }

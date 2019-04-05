@@ -21,10 +21,12 @@ export enum Result {
 })
 export class AppComponent {
   public LEVELS = LEVELS;
+  public State = State;
   public Result = Result;
   state: State;
   result: Result;
   level: Level;
+  nextLevel: Level;
   selectedLevel: Level;
   environment: Environment;
   instructionSet: Instruction[];
@@ -61,6 +63,11 @@ export class AppComponent {
     // Prepare instruction set
     this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet : INSTRUCTIONS;
 
+    // Prepare the next level
+    this.nextLevel = LEVELS.find((l) => {
+      return l.id === this.level.id + 1;
+    });
+
     // Ready for player input
     this.state = State.ready;
   }
@@ -74,7 +81,10 @@ export class AppComponent {
 
       // End the program if there are no instructions
       if (p.instructions.length === 0) {
-        p.stop();
+        p.stop(() => {
+          this.state = State.finished;
+          this.result = Result.failure;
+        });
         return;
       }
 
@@ -85,12 +95,11 @@ export class AppComponent {
       // Check if win condition is met
       if (this.environment.player.position.matches(this.level.winPos)) {
         this.result = Result.success;
-        p.stop();
+        p.stop(() => {
+          this.state = State.finished;
+        });
       }
     }, 800);
-
-
-    this.state = State.finished;
   }
 
   resetEnvironment() {
