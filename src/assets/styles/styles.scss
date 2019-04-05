@@ -1,5 +1,5 @@
 /* Reset browser defaults */
-@import "normalize";
+@import "reset";
 
 /* Utilities */
 @import "svg-utils";
@@ -22,7 +22,6 @@ code {
 }
 
 /* Styles shared between our components */
-$standard-padding: 14px;
 @import "shared";
 
 /* Finally, our components */

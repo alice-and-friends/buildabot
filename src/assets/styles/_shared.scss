@@ -5,6 +5,10 @@
   margin: 0 auto;
   width: 1280px;
 }
+
+/*
+ * Generic classes
+ */
 .f-left {
   float: left;
 }
@@ -21,6 +25,9 @@
 /*
  * Forms, buttons, etc
  */
+.controls {
+  /*margin-bottom: $standard-spacing;*/
+}
 .controls > * {
   margin-right: 12px;
 }
@@ -55,19 +62,35 @@ select {
   background-position: 100% 50%;
   background-repeat: no-repeat;
   border-radius: 0;
-  padding-right: 4%;
+  padding-right: 2em;
 }
 
+$box-padding: 14px;
 .box-wrap {
   margin-bottom: 2em;
 }
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .box-controls {
+    display: flex;
+    width: auto;
+
+    > * {
+      position: relative;
+      margin-left: -1px;
+    }
+  }
+}
 .box {
-  padding: $standard-padding;
+  padding: $box-padding;
   background-color: rgba(0,0,0,.2);
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 3px;
 
   &.half-padding {
-    padding: $standard-padding / 2;
+    padding: $box-padding / 2;
   }
 }

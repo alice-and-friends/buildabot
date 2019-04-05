@@ -1,7 +1,7 @@
 <div class="parent">
 
   <div class="box-wrap">
-    <h2 class="color-green">Instruction set</h2>
+    <h2>Instruction set</h2>
     <div class="box half-padding">
     <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="instructionSet" id="instruction-set">
       <app-instruction
@@ -16,9 +16,11 @@
   </div>
 
   <div class="box-wrap">
-    <div class="ilw-flex">
-      <h2 class="color-green">Program memory</h2>
-      <button (click)="program.instructions = []" class="clear-button">Clear</button>
+    <div class="box-header">
+      <h2>Program memory</h2>
+      <div class="box-controls">
+        <button (click)="program.instructions = []" class="box-control">Clear</button>
+      </div>
     </div>
     <div class="box half-padding">
       <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="program.instructions">
