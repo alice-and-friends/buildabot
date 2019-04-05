@@ -2,24 +2,18 @@
  * Page layout
  */
 .wrapper {
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
   width: 1280px;
 }
-
-/*
- * Generic classes
- */
-.f-left {
-  float: left;
+.column {
+  width: 620px;
 }
-.f-right {
-  float: right;
-}
-.w-1 {
-  width: 100%;
-}
-.w-1-2 {
-  width: 50%;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*
@@ -48,7 +42,7 @@ button, select {
   cursor: pointer;
 
   &.button-big {
-    width: 300px;
+    width: 260px;
     padding: 8px 10px;
   }
   &.button-secondary {

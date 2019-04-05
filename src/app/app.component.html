@@ -1,11 +1,15 @@
 <div class="wrapper">
 
-  <div class="f-left w-1-2">
+  <div class="column">
     <h2>Environment</h2>
-    <app-environment [@environment]="environment"></app-environment>
+    <div class="box-wrap">
+      <div class="box">
+        <app-environment [@environment]="environment"></app-environment>
+      </div>
+    </div>
   </div>
 
-  <div class="f-right w-1-2">
+  <div class="column">
     <div class="box-header">
       <h2>Scenario</h2>
       <div class="box-controls">

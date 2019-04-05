@@ -1,11 +1,13 @@
 @import "colors";
 
 .environment {
-  display: table;
-  border: 2px solid $black;
+  display: flex;
+  justify-content: center;
 
   .grid {
     position: relative;
+    display: table;
+    border: 2px solid $black;
   }
   .row {
     display: table-row;
