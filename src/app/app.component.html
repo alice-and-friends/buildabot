@@ -1,8 +1,10 @@
 <div class="wrapper">
 
   <div class="column">
-    <h2>Environment</h2>
     <div class="box-wrap">
+      <div class="box-header">
+        <h2>Environment</h2>
+      </div>
       <div class="box">
         <app-environment [@environment]="environment"></app-environment>
         <div class="machine-state">
@@ -16,16 +18,16 @@
   </div>
 
   <div class="column">
-    <div class="box-header">
-      <h2>Scenario</h2>
-      <div class="box-controls">
-        <select [(ngModel)]="selectedLevel">
-          <option *ngFor="let l of LEVELS" [ngValue]="l">Level {{ l.id }}</option>
-        </select>
-        <button (click)="loadLevel(selectedLevel)">Load</button>
-      </div>
-    </div>
     <div class="box-wrap">
+      <div class="box-header">
+        <h2>Scenario</h2>
+        <div class="box-controls">
+          <select [(ngModel)]="selectedLevel">
+            <option *ngFor="let l of LEVELS" [ngValue]="l">Level {{ l.id }}</option>
+          </select>
+          <button (click)="loadLevel(selectedLevel)">Load</button>
+        </div>
+      </div>
       <div class="box">
         <h3>{{ level.title }}</h3>
         <p *ngFor="let p of level.description" [innerHTML]="p"></p>
