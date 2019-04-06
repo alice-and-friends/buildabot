@@ -35,7 +35,8 @@
     </div>
 
     <div [hidden]="result !== Result.undetermined">
-      <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
+      <app-program-editor [@instructionSet]="instructionSet" [@program]="program" [@editable]="state !== State.running">
+      </app-program-editor>
       <div class="controls">
         <button [disabled]="state === State.running" (click)="runProgram()" class="button-big">Run program</button>
       </div>

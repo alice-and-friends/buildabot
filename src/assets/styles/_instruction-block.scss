@@ -11,6 +11,10 @@
   cursor: grab;
   justify-content: center;
   align-items: center;
+
+  &.non-editable{
+    cursor: no-drop;
+  }
 }
 
 .instruction-block-inner {

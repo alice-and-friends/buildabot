@@ -3,13 +3,13 @@ import { Instruction } from '../../models/instruction';
 import { Program } from '../../models/program';
 import { DragulaService } from 'ng2-dragula';
 
-
 @Component({
   selector: 'app-program-editor',
   templateUrl: './program-editor.component.html',
 })
 export class ProgramEditorComponent {
   @Input() program: Program;
+  @Input() editable: boolean;
   @Input() instructionSet: Instruction[];
 
   constructor(private dragulaService: DragulaService) {
@@ -24,13 +24,18 @@ export class ProgramEditorComponent {
         // To avoid dragging from program to instruction set
         return target.id !== 'instruction-set';
       },
+      moves: () => {
+        return this.editable;
+      },
       removeOnSpill: true,
       direction: 'horizontal',
     });
   }
 
   addInstruction(instruction) {
-    this.program.instructions.push(instruction);
+    if (this.editable) {
+      this.program.instructions.push(instruction);
+    }
   }
 
 }
