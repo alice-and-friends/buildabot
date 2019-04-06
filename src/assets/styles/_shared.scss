@@ -49,6 +49,9 @@ button, select {
     border-color: $white;
     color: $white;
   }
+  &:disabled {
+    opacity: 0.2;
+  }
 }
 select {
   -webkit-appearance: none;

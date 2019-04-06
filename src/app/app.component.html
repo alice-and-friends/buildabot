@@ -37,7 +37,7 @@
     <div [hidden]="result !== Result.undetermined">
       <app-program-editor [@instructionSet]="instructionSet" [@program]="program"></app-program-editor>
       <div class="controls">
-        <button (click)="runProgram()" class="button-big">Run program</button>
+        <button [disabled]="state === State.running" (click)="runProgram()" class="button-big">Run program</button>
       </div>
     </div>
 
