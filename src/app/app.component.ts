@@ -63,6 +63,9 @@ export class AppComponent {
     // Prepare instruction set
     this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet : INSTRUCTIONS;
 
+    // Set the level selector dropdown to reflect the current level
+    this.selectedLevel = this.level;
+
     // Prepare the next level
     this.nextLevel = LEVELS.find((l) => {
       return l.id === this.level.id + 1;
