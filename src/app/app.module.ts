@@ -7,7 +7,7 @@ import { DragulaModule } from 'ng2-dragula';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnvironmentComponent } from './components/environment/environment.component';
-import { PlayerComponent } from './components/player/player.component';
+import { RobotComponent } from './components/robot/robot.component';
 import { InstructionComponent } from './components/instruction/instruction.component';
 import { ProgramEditorComponent } from './components/program-editor/program-editor.component';
 
@@ -15,7 +15,7 @@ import { ProgramEditorComponent } from './components/program-editor/program-edit
   declarations: [
     AppComponent,
     EnvironmentComponent,
-    PlayerComponent,
+    RobotComponent,
     InstructionComponent,
     ProgramEditorComponent,
   ],

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EnvironmentComponent } from './environment.component';
-import { PlayerComponent } from '../player/player.component';
+import { RobotComponent } from '../robot/robot.component';
 import { Environment } from 'app/models/environment';
 import { LEVELS } from 'app/constants/levels';
 
@@ -13,7 +13,7 @@ describe('EnvironmentComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         EnvironmentComponent,
-        PlayerComponent,
+        RobotComponent,
       ]
     })
     .compileComponents();

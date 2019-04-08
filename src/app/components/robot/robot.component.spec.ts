@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayerComponent } from './player.component';
-import { Player } from 'app/models/player';
+import { RobotComponent } from './robot.component';
+import { Robot } from 'app/models/robot';
 import { Coordinates } from 'app/models/coordinates';
 
-describe('PlayerComponent', () => {
-  let component: PlayerComponent;
-  let fixture: ComponentFixture<PlayerComponent>;
+describe('RobotComponent', () => {
+  let component: RobotComponent;
+  let fixture: ComponentFixture<RobotComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayerComponent ]
+      declarations: [ RobotComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlayerComponent);
+    fixture = TestBed.createComponent(RobotComponent);
     component = fixture.componentInstance;
-    component.player = new Player({
+    component.player = new Robot({
       position: new Coordinates({x: 0, y: 0}),
       rotation: 0,
     });

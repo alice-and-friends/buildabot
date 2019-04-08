@@ -30,7 +30,6 @@ export class AppComponent {
   selectedLevel: Level;
   environment: Environment;
   instructionSet: Instruction[];
-  program: Program;
 
   constructor() {
     // Set initial state
@@ -55,10 +54,7 @@ export class AppComponent {
     this.result = Result.undetermined;
 
     // Prepare the environment
-    this.environment = new Environment(Utils.copy(this.level));
-
-    // Prepare an empty program
-    this.program = new Program();
+    this.environment = new Environment(this.level.copy());
 
     // Prepare instruction set
     this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet : INSTRUCTIONS;
@@ -71,38 +67,54 @@ export class AppComponent {
       return l.id === this.level.id + 1;
     });
 
-    // Ready for player input
+    // Ready for robot input
     this.state = State.ready;
   }
 
-  runProgram() {
+  async runProgram() {
     this.state = State.running;
+    console.log('begin run program', Utils.copy(this.environment));
 
-    const p = this.program.copy(); // Grab a copy of the program to run
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    let playerInstruction;
+    let enemyInstruction;
+    let round = 0;
+    while (true) {
+      console.log('begin instruction round', round);
 
-    p.run(() => { // For each tick:
-
-      // End the program if there are no instructions
-      if (p.instructions.length === 0) {
-        p.stop(() => {
-          this.state = State.finished;
-          this.result = Result.failure;
-        });
-        return;
+      // Player moves first
+      playerInstruction = this.environment.player.program.instructions[round];
+      if (!playerInstruction) {
+        console.log('program ended (no more instructions)');
+        this.result = Result.failure;
+        this.state = State.finished;
+        break; // No more instructions, end the loop
       }
+      console.log('player does', playerInstruction);
+      this.environment.player[playerInstruction.f]();
+      await delay(500);
 
-      // Get the next instruction and execute it
-      const instruction = p.instructions.shift();
-      this.environment.player[instruction.f]();
-
-      // Check if win condition is met
+      // Check win condition
       if (this.environment.player.position.matches(this.level.winPos)) {
+        console.log('program ended (player won)');
         this.result = Result.success;
-        p.stop(() => {
-          this.state = State.finished;
-        });
+        this.state = State.finished;
+        break; // End the loop
       }
-    }, 800);
+
+      // Enemies move
+      for (const enemy of this.environment.enemies) {
+        enemyInstruction = enemy.program.instructions[round];
+        if (enemyInstruction) {
+          console.log('enemy does', enemyInstruction);
+          enemy[enemyInstruction.f]();
+          await delay(500);
+        }
+      }
+
+      // Increase counter for next round
+      round++;
+    }
   }
 
   resetLevel() {
