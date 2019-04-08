@@ -1,6 +1,4 @@
-@import "colors";
-
-.player {
+.robot {
   position: absolute;
   left: 0;
   top: 0;
@@ -10,5 +8,12 @@
 
   mask: url('../images/robot.svg') no-repeat center center;
   mask-size: 70%;
-  background-color: $green;
+  background-color: $white;
+
+  &.player {
+    background-color: $green;
+  }
+  &.enemy {
+    background-color: $yellow;
+  }
 }

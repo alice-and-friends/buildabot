@@ -43,5 +43,21 @@ export const LEVELS = [
     instructionSet: [
       // All instructions allowed
     ],
+    /*
+    enemies: [
+      new Robot({
+        position: new Coordinates({x: 4, y: 2}),
+        rotation: -90,
+        program: new Program({
+          instructions: [
+            getInstruction('moveForward'),
+            getInstruction('moveForward'),
+            getInstruction('moveForward'),
+            getInstruction('moveForward'),
+          ],
+        }),
+      }),
+    ]
+    */
   }),
 ];

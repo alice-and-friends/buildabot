@@ -1,0 +1,9 @@
+<div
+  [ngStyle]="{
+    'left.px': robot.position.x * 100,
+    'top.px': robot.position.y * 100,
+    'transform': 'rotate('+robot.rotation+'deg)'
+  }"
+  class="robot {{type}}"
+>
+</div>

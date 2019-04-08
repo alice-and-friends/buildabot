@@ -15,7 +15,7 @@ function getTestEnv() {
 
 describe('Program', () => {
   it('should create an instance', () => {
-    expect(new Program()).toBeTruthy();
+    expect(new Program({})).toBeTruthy();
   });
 
   it('should move in a circle, clockwise forwards', () => {

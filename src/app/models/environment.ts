@@ -1,9 +1,10 @@
-import { Player } from 'app/models/player';
+import { Robot } from 'app/models/robot';
 import { Coordinates } from 'app/models/coordinates';
 
 export class Environment {
   boardSize: number;
-  player: Player;
+  player: Robot;
+  enemies: Robot[];
   tiles: [][];
   winPos: Coordinates;
 
@@ -11,10 +12,8 @@ export class Environment {
     this.boardSize = level.boardSize;
     this.tiles = [];
 
-    this.player = new Player({
-      position: new Coordinates({x: level.startPos.x, y: level.startPos.y}),
-      rotation: 0,
-    });
+    this.player = level.player;
+    this.enemies = level.enemies;
     this.winPos = level.winPos;
 
     let row;
@@ -31,5 +30,7 @@ export class Environment {
   reset(level) {
     this.player.position = new Coordinates({x: level.startPos.x, y: level.startPos.y});
     this.player.rotation = 0;
+
+    // TODO: Reset enemies positions
   }
 }

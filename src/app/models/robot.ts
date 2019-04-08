@@ -1,16 +1,21 @@
 import { Coordinates } from 'app/models/coordinates';
+import { Program } from 'app/models/program';
 
-export class Player {
+export class Robot {
   position: Coordinates;
   rotation: number;
+  program: Program;
+  type: string;
 
   constructor(opts) {
     this.position = new Coordinates({x: opts.position.x, y: opts.position.y});
     this.rotation = opts.rotation;
+    this.program = opts.program || new Program({});
+    this.type = opts.type;
   }
 
   /*
-   * Functions for moving the player token
+   * Functions for moving the robot token
    */
   move(distance) {
     const r = this.rotation % 360;
@@ -38,7 +43,7 @@ export class Player {
   }
 
   /*
-   * Functions for turning the player token
+   * Functions for turning the robot token
    */
   turnLeft() {
     this.rotation -= 90;

@@ -27,7 +27,7 @@ describe('ProgramEditorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProgramEditorComponent);
     component = fixture.componentInstance;
-    component.program = new Program();
+    component.program = new Program({});
     fixture.detectChanges();
   });
 

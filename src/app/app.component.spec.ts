@@ -5,13 +5,12 @@ import { AppComponent } from './app.component';
 import { EnvironmentComponent } from './components/environment/environment.component';
 import { ProgramEditorComponent } from './components/program-editor/program-editor.component';
 import { InstructionComponent } from './components/instruction/instruction.component';
-import { PlayerComponent } from './components/player/player.component';
+import { RobotComponent } from './components/robot/robot.component';
 import { DragulaModule } from 'ng2-dragula';
 import { getInstruction } from 'app/getters';
 import { Coordinates } from 'app/models/coordinates';
 import { Level } from 'app/models/level';
 import { Program } from 'app/models/program';
-import { INSTRUCTIONS } from 'app/constants/instructions';
 import { Result } from './app.component';
 
 describe('AppComponent', () => {
@@ -27,7 +26,7 @@ describe('AppComponent', () => {
         EnvironmentComponent,
         ProgramEditorComponent,
         InstructionComponent,
-        PlayerComponent
+        RobotComponent
       ],
     }).compileComponents();
   }));
@@ -38,7 +37,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should win', () => {
+  it('should win', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     app.loadLevel(new Level({
@@ -47,11 +46,10 @@ describe('AppComponent', () => {
       startPos: new Coordinates({x: 1, y: 1}),
       winPos: new Coordinates({x: 1, y: 0}),
     }));
-    app.program = new Program();
-    app.program.instructions = [
+    app.environment.player.program.instructions = [
       getInstruction('moveForward'),
     ];
-    app.runProgram();
+    await app.runProgram();
     expect(app.result).toEqual(Result.success);
   });
 
