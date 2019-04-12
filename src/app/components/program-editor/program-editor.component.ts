@@ -37,5 +37,4 @@ export class ProgramEditorComponent {
       this.program.instructions.push(instruction);
     }
   }
-
 }
