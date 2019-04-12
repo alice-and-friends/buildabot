@@ -1,6 +1,5 @@
 import { Coordinates } from 'app/models/coordinates';
 import { Level } from 'app/models/level';
-import { getInstruction } from 'app/getters';
 
 export const LEVELS = [
   new Level({
@@ -16,7 +15,7 @@ export const LEVELS = [
     startPos: new Coordinates({x: 1, y: 2}),
     winPos: new Coordinates({x: 1, y: 1}),
     instructionSet: [
-      getInstruction('moveForward'),
+      'moveForward',
     ],
   }),
   new Level({
@@ -31,8 +30,8 @@ export const LEVELS = [
     startPos: new Coordinates({x: 1, y: 2}),
     winPos: new Coordinates({x: 0, y: 1}),
     instructionSet: [
-      getInstruction('moveForward'),
-      getInstruction('turnLeft'),
+      'moveForward',
+      'turnLeft',
     ],
   }),
   new Level({

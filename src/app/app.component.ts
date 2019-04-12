@@ -54,10 +54,10 @@ export class AppComponent {
     this.result = Result.undetermined;
 
     // Prepare the environment
-    this.environment = new Environment(this.level.copy());
+    this.environment = new Environment(this.level);
 
     // Prepare instruction set
-    this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet : INSTRUCTIONS;
+    this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet.map(Instruction.getById) : INSTRUCTIONS;
 
     // Set the level selector dropdown to reflect the current level
     this.selectedLevel = this.level;
