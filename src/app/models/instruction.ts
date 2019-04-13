@@ -13,7 +13,7 @@ export class Instruction {
     if (!instruction) {
       console.warn('Instruction not found:', query);
     }
-    return instruction;
+    return new Instruction(instruction);
   }
 
   constructor(opts) {
