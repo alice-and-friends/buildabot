@@ -7,7 +7,7 @@ import { ProgramEditorComponent } from './components/program-editor/program-edit
 import { InstructionComponent } from './components/instruction/instruction.component';
 import { RobotComponent } from './components/robot/robot.component';
 import { DragulaModule } from 'ng2-dragula';
-import { getInstruction } from 'app/getters';
+import { Instruction } from 'app/models/instruction';
 import { Coordinates } from 'app/models/coordinates';
 import { Level } from 'app/models/level';
 import { Program } from 'app/models/program';
@@ -47,7 +47,7 @@ describe('AppComponent', () => {
       winPos: new Coordinates({x: 1, y: 0}),
     }));
     app.environment.player.program.instructions = [
-      getInstruction('moveForward'),
+      Instruction.getById('moveForward'),
     ];
     await app.runProgram();
     expect(app.result).toEqual(Result.success);
