@@ -54,7 +54,7 @@ export class AppComponent {
     this.result = Result.undetermined;
 
     // Prepare the environment
-    this.environment = new Environment(this.level);
+    this.environment = new Environment(this.level.copy());
 
     // Prepare instruction set
     this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet.map(Instruction.getById) : INSTRUCTIONS;
