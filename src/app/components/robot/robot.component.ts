@@ -3,7 +3,7 @@ import { Robot } from 'app/models/robot';
 
 @Component({
   selector: 'app-robot',
-  templateUrl: './robot.component.html',
+  templateUrl: './robot.component.html'
 })
 export class RobotComponent {
   @Input() robot: Robot;

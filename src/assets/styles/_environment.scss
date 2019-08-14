@@ -24,6 +24,7 @@
   position: absolute;
   left: 0;
   top: 0;
+  z-index: -1;
 }
 
 .battery {
@@ -32,4 +33,32 @@
   mask: url('../images/battery.svg') no-repeat center center;
   mask-size: 40%;
   background-color: $green;
+}
+
+.mine {
+  width: 100px;
+  height: 100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    mask: url('../images/mine.svg') no-repeat center center;
+    mask-size: 75%;
+    background-color: $black;
+    transform: rotate(190deg);
+  }
+
+  &.activated {
+    transform: scale(1.3);
+    transition: transform 0.15s ease-out;
+
+    &::before {
+      background-color: $red;
+    }
+  }
 }

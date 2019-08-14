@@ -1,3 +1,4 @@
+import { Program } from 'app/models/program';
 import { Robot } from 'app/models/robot';
 import { Coordinates } from 'app/models/coordinates';
 
@@ -5,6 +6,7 @@ export class Environment {
   boardSize: number;
   player: Robot;
   enemies: Robot[];
+  objects: any[];
   tiles: [][];
   winPos: Coordinates;
 
@@ -12,8 +14,13 @@ export class Environment {
     this.boardSize = level.boardSize;
     this.tiles = [];
 
-    this.player = level.player;
+    this.player = new Robot({
+      position: new Coordinates({x: level.startPos.x, y: level.startPos.y}),
+      rotation: 0,
+      program: new Program({}),
+    });
     this.enemies = level.enemies;
+    this.objects = level.objects;
     this.winPos = level.winPos;
 
     let row;
@@ -26,6 +33,7 @@ export class Environment {
     }
   }
 
+  //TODO remove function
   // Resets the environment to starting conditions for the current level
   reset(level) {
     this.player.position = new Coordinates({x: level.startPos.x, y: level.startPos.y});

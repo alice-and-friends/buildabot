@@ -4,7 +4,7 @@ import { INSTRUCTIONS } from 'app/constants/instructions';
 import { Environment } from 'app/models/environment';
 import { Instruction } from 'app/models/instruction';
 import { Level } from './models/level';
-import { Program } from './models/program';
+import { Mine } from './models/object';
 import Utils from './utils';
 
 export enum State {
@@ -20,16 +20,35 @@ export enum Result {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  /*
+   * Some important distinctions between variables:
+   * `selectedLevel` is a recipe, it describes what the level should look like. we should never edit this object directly.
+   * `activeLevel` is the current level state, it starts out as a copy of `level`, and will be updated continuously while the program runs
+   * `nextLevel` is the recipe for the next level, if one exists. This is preloaded because it affects progression options in the UI.
+   */
   public LEVELS = LEVELS;
   public State = State;
   public Result = Result;
   state: State;
   result: Result;
-  level: Level;
-  nextLevel: Level;
   selectedLevel: Level;
+  activeLevel: Level;
+  nextLevel: Level;
   environment: Environment;
   instructionSet: Instruction[];
+
+  private interactions = [
+    {
+      subject: 'Robot',
+      object: 'Mine',
+      f: (subject, object) => {
+        object.activated = true;
+        subject.die();
+        this.state = State.finished;
+        this.result = Result.failure;
+      }
+    }
+  ];
 
   constructor() {
     // Set initial state
@@ -47,28 +66,28 @@ export class AppComponent {
   loadLevel(level) {
     this.state = State.loading;
 
-    // Load the desired level
-    this.level = level;
+    // Load level data
+    this.activeLevel = new Level(level);
 
     // Reset previous results
     this.result = Result.undetermined;
 
-    // Prepare the environment
-    this.environment = new Environment(this.level.copy());
+    // Configure environment for the selected level
+    this.environment = new Environment(this.activeLevel);
 
     // Prepare instruction set
-    this.instructionSet = this.level.instructionSet.length ? this.level.instructionSet.map(Instruction.getById) : INSTRUCTIONS;
+    this.instructionSet = this.activeLevel.instructionSet.length ? this.activeLevel.instructionSet.map(Instruction.getById) : INSTRUCTIONS;
+
+    // Ready to accept programming
+    this.state = State.ready;
 
     // Set the level selector dropdown to reflect the current level
-    this.selectedLevel = this.level;
+    this.selectedLevel = level;
 
-    // Prepare the next level
+    // Preload the next level
     this.nextLevel = LEVELS.find((l) => {
-      return l.id === this.level.id + 1;
+      return l.id === this.activeLevel.id + 1;
     });
-
-    // Ready for robot input
-    this.state = State.ready;
   }
 
   async runProgram() {
@@ -88,18 +107,33 @@ export class AppComponent {
         console.log('program ended (no more instructions)');
         this.result = Result.failure;
         this.state = State.finished;
-        break; // No more instructions, end the loop
+        break; // No more instructions, end program
       }
       console.log('player does', playerInstruction);
       this.environment.player[playerInstruction.f]();
       await delay(500);
 
+      // Check for object interactions at the new position
+      const objectOnTile = this.environment.objects.find(o => o.position.matches(this.environment.player.position));
+      if (objectOnTile) {
+        const playerObjectInteraction = this.interactions.find((i) => {
+          return i.subject === 'Robot' && i.object === objectOnTile.constructor.name;
+        });
+        if (playerObjectInteraction) {
+          playerObjectInteraction.f(this.environment.player, objectOnTile); // Run interaction
+          if (this.state.valueOf() === State.finished.valueOf()) {
+            break; // End program
+          }
+        }
+      }
+
       // Check win condition
-      if (this.environment.player.position.matches(this.level.winPos)) {
+      // TODO: Can probably remove this block when battery has been refactor as interactable object (win interaction)
+      if (this.environment.player.position.matches(this.activeLevel.winPos)) {
         console.log('program ended (player won)');
         this.result = Result.success;
         this.state = State.finished;
-        break; // End the loop
+        break; // End program
       }
 
       // Enemies move
@@ -117,9 +151,7 @@ export class AppComponent {
     }
   }
 
-  resetLevel() {
-    this.environment.reset(Utils.copy(this.level));
-    this.state = State.ready;
-    this.result = Result.undetermined;
+  restartLevel() {
+    this.loadLevel(this.selectedLevel);
   }
 }
