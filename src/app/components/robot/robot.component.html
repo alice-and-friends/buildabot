@@ -5,5 +5,6 @@
     'transform': 'rotate('+robot.rotation+'deg)'
   }"
   class="robot {{type}}"
+  [ngClass]="{'dead': robot.state === 'dead'}"
 >
 </div>

@@ -14,6 +14,49 @@
     background-color: $green;
   }
   &.enemy {
-    background-color: $yellow;
+    background-color: $red;
+  }
+
+  &.dead {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) forwards;
+    animation-delay: 200ms;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    background-color: $gray;
+    transition: background-color 1000ms ease-out;
+    transition-delay: 1000ms;
+  }
+
+  @keyframes shake {
+    10% {
+      transform: translate3d(-1px, 0, 5);
+    }
+    20% {
+      transform: translate3d(3px, 0, 0);
+    }
+    30% {
+      transform: translate3d(-5px, 0, 0);
+    }
+    40% {
+      transform: translate3d(5px, 0, 0);
+    }
+    50% {
+      transform: translate3d(-5px, 0, 0);
+    }
+    60% {
+      transform: translate3d(5px, 0, 0);
+    }
+    70% {
+      transform: rotate(10deg) translate3d(-5px, 0, 0);
+    }
+    80% {
+      transform: rotate(20deg) translate3d(3px, 0, 0);
+    }
+    90% {
+      transform: rotate(30deg) translate3d(-1px, 0, 0);
+    }
+    100% {
+      transform: rotate(40deg) translate3d(-0px, 0, 5);
+    }
   }
 }
