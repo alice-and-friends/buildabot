@@ -6,7 +6,7 @@
         <h2>Environment</h2>
       </div>
       <div class="box">
-        <app-environment [@environment]="environment"></app-environment>
+        <app-environment [environment]="environment"></app-environment>
         <div class="machine-state">
           State:&nbsp;
           <span *ngIf="state === State.ready">Ready</span>
@@ -36,9 +36,9 @@
 
     <div [hidden]="result !== Result.undetermined">
       <app-program-editor
-        [@instructionSet]="instructionSet"
-        [@program]="environment.player.program"
-        [@editable]="state !== State.running"
+        [instructionSet]="instructionSet"
+        [program]="environment.player.program"
+        [editable]="state !== State.running"
       >
       </app-program-editor>
       <div class="controls">

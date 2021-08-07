@@ -6,7 +6,7 @@
     <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="instructionSet" id="instruction-set">
       <app-instruction
         *ngFor="let i of instructionSet"
-        [@instruction]="i"
+        [instruction]="i"
         class="instruction-block"
         [ngClass]="{'non-editable': !editable}"
         (click)="addInstruction(i)"
@@ -27,7 +27,7 @@
     <div class="instruction-list" dragula="program-editor" [(dragulaModel)]="program.instructions">
       <app-instruction
         *ngFor="let i of program.instructions"
-        [@instruction]="i"
+        [instruction]="i"
         [ngClass]="{'non-editable': !editable}"
         class="instruction-block"
       >

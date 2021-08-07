@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EnvironmentComponent } from './environment.component';
 import { RobotComponent } from '../robot/robot.component';
@@ -9,7 +9,7 @@ describe('EnvironmentComponent', () => {
   let component: EnvironmentComponent;
   let fixture: ComponentFixture<EnvironmentComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         EnvironmentComponent,
