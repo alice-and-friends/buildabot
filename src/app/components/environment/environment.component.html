@@ -1,6 +1,6 @@
 <div class="environment">
   <div class="grid">
-    <app-robot [@robot]="environment.player" type="player"></app-robot>
+    <app-robot [robot]="environment.player" type="player"></app-robot>
     <app-robot *ngFor="let enemy of environment.enemies" [@robot]="enemy" type="enemy"></app-robot>
     <div
       class="object battery"
