@@ -6,6 +6,13 @@ export class Instruction {
   f: string;
   cssClass: string;
 
+  constructor(opts) {
+    this.id = opts.id;
+    this.name = opts.name;
+    this.f = opts.f;
+    this.cssClass = opts.cssClass;
+  }
+
   static getById(query) {
     const instruction = INSTRUCTIONS.find((i) => {
       return i.f === query;
@@ -14,12 +21,5 @@ export class Instruction {
       console.warn('Instruction not found:', query);
     }
     return new Instruction(instruction);
-  }
-
-  constructor(opts) {
-    this.id = opts.id;
-    this.name = opts.name;
-    this.f = opts.f;
-    this.cssClass = opts.cssClass;
   }
 }

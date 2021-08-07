@@ -3,7 +3,7 @@ import { Environment } from 'app/models/environment';
 import { Coordinates } from 'app/models/coordinates';
 import { Level } from 'app/models/level';
 
-function getTestEnv() {
+const getTestEnv = () => {
   const level = new Level({
     id: 1,
     boardSize: 3,
@@ -11,7 +11,7 @@ function getTestEnv() {
     winPos: new Coordinates({x: 0, y: 0}),
   });
   return new Environment(level);
-}
+};
 
 describe('Program', () => {
   it('should create an instance', () => {
