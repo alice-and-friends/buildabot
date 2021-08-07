@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*
  * Page layout
  */
@@ -88,7 +90,7 @@ $box-padding: 14px;
     border-radius: 3px;
 
     &.half-padding {
-      padding: $box-padding / 2;
+      padding: math.div($box-padding, 2);
     }
   }
 }
